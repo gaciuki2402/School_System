@@ -1,8 +1,11 @@
+from multiprocessing import context
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Dashboard
 
 def index(request):
-    return HttpResponse("Goodmorning Students of Taita Taveta University.")
-    
+    latest_dashboard=Dashboard.objects.all()
+    context={
+        'latest_dashboard':latest_dashboard,
+    }
+    return render(request, 'polls/indexes.html', context)
 
-# Create your views here.

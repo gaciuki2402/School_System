@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% block content %} 
+    <h1 class="text-center mb-3">School System</h1>
+    {% if latest_dashboard %}
+        {% for dashboard in latest_dashboard %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="lead">{{ dashboard.Dashboard}}</p>
+                    
+                </div>
+            </div>
+        {% endfor %}
+    {% else % }
+        <p>No dashboard available</p>
+    {% endif %}
+
+{% endblock %}
